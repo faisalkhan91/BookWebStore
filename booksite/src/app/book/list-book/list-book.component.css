@@ -1,0 +1,11 @@
+body{
+    padding: 2rem 0rem;
+  }
+  
+.card {
+    margin-bottom: 1rem;
+}
+
+.centered {
+  position: center;
+}

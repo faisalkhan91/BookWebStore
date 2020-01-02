@@ -1,0 +1,25 @@
+<div class="container" style="vertical-align: middle; height: 380px ; width: 300px">
+    
+        <form (ngSubmit)="onSubmit()" #f="ngForm">
+          <div class="form-group">
+            <label for="Name">Name</label>
+            <input type="text" required ngModel name="name" class="form-control" id="txtName">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" ngModel email required name="email" class="form-control" id="emEmail" aria-describedby="emailHelp">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="Author">Author</label>
+            <input type="text" ngModel name="author" class="form-control" id="txtAuthor">
+          </div>
+          <div class="form-group">
+            <label for="Price">Price</label>
+            <input type="text" ngModel name="price" class="form-control" id="txtPrice">
+          </div>
+          <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Submit</button>
+        </form>
+        
+        </div>
+        
