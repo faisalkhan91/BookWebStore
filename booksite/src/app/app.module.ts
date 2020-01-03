@@ -12,6 +12,10 @@ import { HomeComponent } from './home/home.component';
 import { AddBookComponent } from './book/add-book/add-book.component';
 import { ListBookComponent } from './book/list-book/list-book.component';
 import { RemoveBookComponent } from './book/remove-book/remove-book.component';
+import { ShoppingComponent } from './shopping/shopping.component';
+import { AddItemComponent } from './shopping/add-item/add-item.component';
+import { ListCartComponent } from './shopping/list-cart/list-cart.component';
+import { RemoveItemComponent } from './shopping/remove-item/remove-item.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { RemoveBookComponent } from './book/remove-book/remove-book.component';
     HomeComponent,
     AddBookComponent,
     ListBookComponent,
-    RemoveBookComponent
+    RemoveBookComponent,
+    ShoppingComponent,
+    AddItemComponent,
+    ListCartComponent,
+    RemoveItemComponent
   ],
   imports: [
     BrowserModule,

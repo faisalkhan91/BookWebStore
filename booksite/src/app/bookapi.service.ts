@@ -55,5 +55,4 @@ export class BookapiService {
       error=>{console.error();
       };
   }
-
 }
