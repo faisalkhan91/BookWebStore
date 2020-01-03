@@ -61,14 +61,9 @@ namespace BookSiteAPI
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            //
+            app.UseCors("CorsPolicy");
+            //
 
             //
             app.UseSwagger();
@@ -79,9 +74,15 @@ namespace BookSiteAPI
             });
             //
 
-            //
-            app.UseCors("CorsPolicy");
-            //
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+
         }
     }
 }
