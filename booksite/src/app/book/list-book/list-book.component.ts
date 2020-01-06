@@ -18,7 +18,8 @@ export class ListBookComponent implements OnInit {
   ngOnInit() {
     //console.log(this.books);
     //console.log(this.BookapiService.listbook());
-    this.books = this.BookapiService.listbooks();
+    // -- this.books = this.BookapiService.listbooks();
+    this.books;
     //console.log(this.books);
   }
 
