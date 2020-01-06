@@ -43,7 +43,29 @@ namespace BookSiteAPI.Migrations
 
                     b.HasKey("BookId");
 
-                    b.ToTable("Books");
+                    b.ToTable("Book");
+                });
+
+            modelBuilder.Entity("BookSiteAPI.Models.Order", b =>
+                {
+                    b.Property<int>("OrderId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TotalPrice")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("OrderId");
+
+                    b.ToTable("Order");
                 });
 #pragma warning restore 612, 618
         }

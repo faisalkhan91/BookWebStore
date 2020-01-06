@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BookSiteAPI.Models;
 
 namespace BookSiteAPI.Models
 {
@@ -12,5 +13,7 @@ namespace BookSiteAPI.Models
         {
         }
         public DbSet<Book> Books { get; set; }
+        public DbSet<Book> Orders { get; set; }
+        public DbSet<BookSiteAPI.Models.Order> Order { get; set; }
     }
 }
