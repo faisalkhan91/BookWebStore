@@ -2,7 +2,7 @@
       <h1 class="projTitle">Shopping Cart</h1>
       <div class="heading cf">
         <h1>My Cart</h1>
-        <a href="#" class="continue" routerLink="">Continue Shopping</a>
+        <a href="#" class="continue" routerLink="/book">Continue Shopping</a>
       </div>
       <div class="cart">
     <!--<ul class="tableHead">
@@ -15,10 +15,10 @@
           <li class="items odd" *ngFor="let book of books">
             <div class="infoWrap">
               <div class="cartSection">
-                <img src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg" alt="" class="itemImg" />
+                <img src="assets/cartimage.jpg" alt="" class="itemImg" />
                 <p class="itemNumber">{{ book.author }}</p>
                 <h3>{{ book.name }}</h3>
-                <p> <input type="text"  class="qty" placeholder="3"/> x ${{ book.price }}</p>
+                <p> <input type="text"  class="qty" placeholder="1" name="quantity" [(ngModel)]="quantity"/> x ${{ book.price }}</p>
                 <p class="stockStatus"> In Stock</p>
               </div>  
               <div class="prodTotal cartSection">

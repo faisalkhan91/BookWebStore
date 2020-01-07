@@ -41,4 +41,13 @@ background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
  .hvr-underline-reveal:hover:before, .hvr-underline-reveal:focus:before, .hvr-underline-reveal:active:before { 
    -webkit-transform: translateY(0); 
   transform: translateY(0); 
- } 
+ }
+
+a {
+  font-size: 1.5em; /* 40px/16=2.5em */
+}
+
+li {
+  box-sizing: border-box;
+  padding: 10px;
+}
