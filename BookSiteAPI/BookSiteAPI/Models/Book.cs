@@ -9,7 +9,8 @@ namespace BookSiteAPI.Models
     public class Book
     {
         int bookId;
-        string name;
+        string bookCode;
+        string bookName;
         string author;
         string email;
         string price;
@@ -17,7 +18,9 @@ namespace BookSiteAPI.Models
         [Key]
         public int BookId { get => bookId; set => bookId = value; }
         [Required]
-        public string Name { get => name; set => name = value; }
+        public string BookCode { get => bookCode; set => bookCode = value; }
+        [Required]
+        public string BookName { get => bookName; set => bookName = value; }
         [Required]
         public string Author { get => author; set => author = value; }
         [Required]

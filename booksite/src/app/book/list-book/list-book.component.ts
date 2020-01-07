@@ -9,17 +9,17 @@ import { BookapiService } from 'src/app/bookapi.service'
 })
 export class ListBookComponent implements OnInit {
 
-  books: Book [] = [{bookId:1, name: 'Pyhton', email: 'fk@gmail.com', author: 'Faisal', price: '22'},
-                   {bookId:2, name: 'C++', email: 'meg@gmail.com', author: 'Megha', price: '10'},
-                   {bookId:3, name: 'Angular', email: 'chandu@gmail.com', author: 'Chandni', price: '7'}];
+  books: Book [] = [{bookId:1, bookCode: 'Xz234wdfw', bookName: 'Pyhton', email: 'fk@gmail.com', author: 'Faisal', price: '22'},
+                   {bookId:2, bookCode: 'Gsdfd24r2', bookName: 'C++', email: 'meg@gmail.com', author: 'Megha', price: '10'},
+                   {bookId:3, bookCode: 'adaRT23H', bookName: 'Angular', email: 'chandu@gmail.com', author: 'Chandni', price: '7'}];
   
   constructor(private BookapiService: BookapiService) { }
 
   ngOnInit() {
     //console.log(this.books);
     //console.log(this.BookapiService.listbook());
-    // -- this.books = this.BookapiService.listbooks();
-    this.books;
+    this.books = this.BookapiService.listbooks();
+    //this.books;
     //console.log(this.books);
   }
 

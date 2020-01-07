@@ -13,7 +13,7 @@ export class AddBookComponent implements OnInit {
   @ViewChild('f', {static:true}) signupForm: NgForm;
 
   book: Book;
-  //id = Math.random().toString(36).substring(2);
+  codeGenerated = '';
 
   constructor(private BookapiService: BookapiService) { }
 
@@ -22,9 +22,21 @@ export class AddBookComponent implements OnInit {
 
   onSubmit()
   {
+    const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz';
+    const stringLength = 10;
+    let randomstring = '';
+    for (let i = 0; i < stringLength; i++)
+    {
+    const rnum = Math.floor(Math.random() * chars.length);
+    randomstring += chars.substring(rnum, rnum + 1);
+    }
+
+    this.codeGenerated = randomstring;
+    console.log(this.codeGenerated);
+
     //console.log(this.signupForm.value);
-    this.book = new Book(this.signupForm.value.name, this.signupForm.value.author, this.signupForm.value.email, this.signupForm.value.price);
-    //console.log(this.book);
+    this.book = new Book(this.codeGenerated, this.signupForm.value.name, this.signupForm.value.author, this.signupForm.value.email, this.signupForm.value.price);
+    console.log(this.book);
     this.BookapiService.addbook(this.book);
   }
 
