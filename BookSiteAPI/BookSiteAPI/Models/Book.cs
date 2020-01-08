@@ -13,7 +13,7 @@ namespace BookSiteAPI.Models
         string bookName;
         string author;
         string email;
-        string price;
+        int price;
 
         [Key]
         public int BookId { get => bookId; set => bookId = value; }
@@ -26,6 +26,6 @@ namespace BookSiteAPI.Models
         [Required]
         public string Email { get => email; set => email = value; }
         [Required]
-        public string Price { get => price; set => price = value; }
+        public int Price { get => price; set => price = value; }
     }
 }

@@ -13,13 +13,12 @@ export class OrderapiService {
 
   constructor(private http:HttpClient) { }
 
-  createorder(order: Order)
+  placeOrder(order: Order)
   {
     this.http.post(this.orderurl, order).subscribe(
       response=>{console.log(response)}),
       error=>{console.error();
       };
-
   }
 
   deleteorder()

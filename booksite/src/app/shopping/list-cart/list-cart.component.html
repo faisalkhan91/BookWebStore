@@ -22,7 +22,7 @@
                 <p class="stockStatus"> In Stock</p>
               </div>  
               <div class="prodTotal cartSection">
-                <p>$15.00</p>
+                <p>${{ book.price }}</p>
               </div>
               <div class="cartSection removeWrap">
                 <a href="#" class="remove" (click)=DeleteBook(item)>x</a>
@@ -46,7 +46,7 @@
           
                 <li class="totalRow"><span class="label">Tax</span><span class="value">$4.00</span></li>
                 <li class="totalRow final"><span class="label">Total</span><span class="value">$44.00</span></li>
-          <li class="totalRow"><a href="#" class="btn continue">Checkout</a></li>
+          <li class="totalRow"><button (click)=SubmitOrder() class="btn continue">Place Order</button></li>
         </ul>
       </div>
     </div>

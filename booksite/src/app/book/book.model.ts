@@ -5,9 +5,9 @@ export class Book
     bookName: string;
     author: string;
     email: string;
-    price: string;
+    price: number;
 
-    constructor(bookCode: string, bookName: string, author: string, email: string, price: string)
+    constructor(bookCode: string, bookName: string, author: string, email: string, price: number)
     {
         this.bookCode = bookCode;
         this.bookName = bookName;
