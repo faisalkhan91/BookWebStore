@@ -30,13 +30,12 @@ export class AddBookComponent implements OnInit {
     const rnum = Math.floor(Math.random() * chars.length);
     randomstring += chars.substring(rnum, rnum + 1);
     }
-
     this.codeGenerated = randomstring;
-    console.log(this.codeGenerated);
+    //console.log(this.codeGenerated);
 
     //console.log(this.signupForm.value);
     this.book = new Book(this.codeGenerated, this.signupForm.value.name, this.signupForm.value.author, this.signupForm.value.email, this.signupForm.value.price);
-    console.log(this.book);
+    //console.log(this.book);
     this.BookapiService.addbook(this.book);
   }
 

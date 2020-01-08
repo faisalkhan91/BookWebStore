@@ -3,6 +3,7 @@ import { Order } from '../order.model';
 import { Book } from 'src/app/book/book.model';
 import { OrderapiService } from 'src/app/orderapi.service';
 import { BookapiService } from 'src/app/bookapi.service';
+import { CartlocalService } from 'src/app/cartlocal.service';
 declare var jQuery: any;
 declare var $: any;
 
@@ -18,11 +19,24 @@ export class ListCartComponent implements OnInit {
                    {bookId:3, bookCode: 'adaRT23H', bookName: 'Angular', email: 'chandu@gmail.com', author: 'Chandni', price: '7'}];
   
   orders: Order[] = [];
+  temp: Book;
 
-  constructor(private OrderapiService: OrderapiService, private BookapiService: BookapiService) { }
+  constructor(private CartlocalService: CartlocalService, private BookapiService: BookapiService) { }
 
   ngOnInit() {
-    this.books = this.BookapiService.listbooks();
+    //this.books = this.BookapiService.listbooks();
+    this.books = this.CartlocalService.listFromCart();
+
+    // this.books.forEach(eachbook => {
+    //   //console.log(eachbook);
+
+    //   if(eachbook.bookCode != this.temp.bookCode)
+    //   {
+
+    //   }
+    // });
+
+    
   }
 
   DeleteBook()

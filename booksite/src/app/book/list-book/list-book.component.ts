@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../book.model';
-import { BookapiService } from 'src/app/bookapi.service'
+import { BookapiService } from 'src/app/bookapi.service';
+import { CartlocalService } from 'src/app/cartlocal.service';
 
 @Component({
   selector: 'app-list-book',
@@ -13,7 +14,9 @@ export class ListBookComponent implements OnInit {
                    {bookId:2, bookCode: 'Gsdfd24r2', bookName: 'C++', email: 'meg@gmail.com', author: 'Megha', price: '10'},
                    {bookId:3, bookCode: 'adaRT23H', bookName: 'Angular', email: 'chandu@gmail.com', author: 'Chandni', price: '7'}];
   
-  constructor(private BookapiService: BookapiService) { }
+  cart : Book [] = [];
+
+  constructor(private BookapiService: BookapiService, private CartlocalService: CartlocalService) { }
 
   ngOnInit() {
     //console.log(this.books);
@@ -21,6 +24,14 @@ export class ListBookComponent implements OnInit {
     this.books = this.BookapiService.listbooks();
     //this.books;
     //console.log(this.books);
+  }
+
+  addToCart(bookCode: Book)
+  {
+    //console.log(bookCode);
+    //this.cart.push(bookCode);
+    this.CartlocalService.addToCart(bookCode);
+    //console.log(this.cart);
   }
 
 }
