@@ -21,6 +21,7 @@ export class ListCartComponent implements OnInit {
   orders: Order[] = [];
   order: Order;
   subTotalPrice: number = 0;
+  discount: number = 0;
   totalPrice: number = 0;
   shipping: number = 0;
   tax: number = 0;
@@ -40,6 +41,7 @@ export class ListCartComponent implements OnInit {
     });
 
     this.subTotalPrice;
+    this.discount;
     if(this.subTotalPrice != 0)
     {
       this.shipping = 5;
@@ -48,12 +50,53 @@ export class ListCartComponent implements OnInit {
     this.totalPrice = this.subTotalPrice + this.shipping + Number(this.tax.toFixed(2));
   }
 
-  DeleteBook()
+  DeleteBook(index: number)
   {
     // $('a.remove').click(function(){
     //   event.preventDefault();
     //   $( this ).parent().parent().parent().hide( 400 );
     // })
+    this.CartlocalService.removeFromCart(index);
+    this.subTotalPrice = 0;
+    this.discount = 0;
+    if(this.subTotalPrice == 0)
+    {
+      this.shipping = 5;
+    }
+    this.tax = 0;
+    this.totalPrice = 0;
+  }
+
+  AddPromo(promo: string)
+  {
+    //console.log(promo);
+    if(promo == "10OFF")
+    {
+      this.discount = (this.subTotalPrice/10)
+      this.subTotalPrice -= this.discount;
+      this.tax = Number((this.subTotalPrice/7).toFixed(2));
+      this.totalPrice = Number((this.subTotalPrice + this.shipping + Number(this.tax.toFixed(2))).toFixed(2));
+    }
+    else if (promo == "20TCS")
+    {
+      this.discount = (2*(this.subTotalPrice/10));
+      this.subTotalPrice -= this.discount;
+      this.tax = Number((this.subTotalPrice/7).toFixed(2));
+      this.totalPrice = Number((this.subTotalPrice + this.shipping + Number(this.tax.toFixed(2))).toFixed(2));
+    }
+  }
+
+  GenerateOrder()
+  {
+    const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz';
+    const stringLength = 10;
+    let randomstring = '';
+    for (let i = 0; i < stringLength; i++)
+    {
+    const rnum = Math.floor(Math.random() * chars.length);
+    randomstring += chars.substring(rnum, rnum + 1);
+    }
+    this.orderGenerated = randomstring;
   }
 
   SubmitOrder()
@@ -74,30 +117,6 @@ export class ListCartComponent implements OnInit {
     });
 
     console.log(this.orders);
-  }
-
-  GenerateOrder()
-  {
-    const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz';
-    const stringLength = 10;
-    let randomstring = '';
-    for (let i = 0; i < stringLength; i++)
-    {
-    const rnum = Math.floor(Math.random() * chars.length);
-    randomstring += chars.substring(rnum, rnum + 1);
-    }
-    this.orderGenerated = randomstring;
-  }
-
-  AddPromo(promo: string)
-  {
-    //console.log(promo);
-    if(promo == "10OFF")
-    {
-      this.subTotalPrice -= (this.subTotalPrice/10);
-      this.tax = Number((this.subTotalPrice/7).toFixed(2));
-      this.totalPrice = this.subTotalPrice + this.shipping + Number(this.tax.toFixed(2));
-    }
   }
 
 }

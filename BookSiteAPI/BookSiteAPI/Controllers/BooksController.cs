@@ -105,5 +105,21 @@ namespace BookSiteAPI.Controllers
         {
             return _context.Books.Any(e => e.BookId == id);
         }
+
+        // DELETE: api/Books
+        [HttpDelete]
+        public async Task<ActionResult<Book>> DeleteBooks(int id)
+        {
+            var book = await _context.Books.FindAsync(id);
+            if (book == null)
+            {
+                return NotFound();
+            }
+
+            _context.Books.Remove(book);
+            await _context.SaveChangesAsync();
+
+            return book;
+        }
     }
 }

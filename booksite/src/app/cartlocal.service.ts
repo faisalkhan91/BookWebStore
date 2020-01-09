@@ -21,4 +21,9 @@ export class CartlocalService {
     return this.cart;
   }
 
+  removeFromCart(index: number)
+  {
+    this.cart.splice(index, 1);
+  }
+
 }

@@ -12,7 +12,7 @@
           <li>Remove</li>
         </ul>-->
         <ul class="cartWrap">
-          <li class="items odd" *ngFor="let book of books">
+          <li class="items odd" *ngFor="let book of books; let i = index">
             <div class="infoWrap">
               <div class="cartSection">
                 <img src="assets/cartimage.jpg" alt="" class="itemImg" />
@@ -25,7 +25,7 @@
                 <p>${{ book.price }}</p>
               </div>
               <div class="cartSection removeWrap">
-                <a href="#" class="remove" (click)=DeleteBook(item)>x</a>
+                <a class="remove" (click)=DeleteBook(i)>x</a>
               </div>
             </div>
           </li>
@@ -44,7 +44,7 @@
       <div class="subtotal cf">
         <ul>
           <li class="totalRow"><span class="label">Subtotal</span><span class="value">${{ subTotalPrice }}</span></li>
-          
+          <li class="totalRow"><span class="label">Discount</span><span class="value">-${{ discount }}</span></li>
               <li class="totalRow"><span class="label">Shipping</span><span class="value">${{ shipping }}</span></li>
 
                 <li class="totalRow"><span class="label">Tax</span><span class="value">${{ tax }}</span></li>
