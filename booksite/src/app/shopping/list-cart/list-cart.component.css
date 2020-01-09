@@ -206,6 +206,7 @@ img {
   font-size: .85em;
   color: #777777;
   font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
 }
 .cart .items .cartSection p .quantity {
   font-weight: bold;

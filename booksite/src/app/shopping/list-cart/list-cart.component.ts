@@ -20,7 +20,10 @@ export class ListCartComponent implements OnInit {
   
   orders: Order[] = [];
   order: Order;
-  price: number;
+  subTotalPrice: number = 0;
+  totalPrice: number = 0;
+  shipping: number = 0;
+  tax: number = 0;
 
   constructor(private CartlocalService: CartlocalService, private BookapiService: BookapiService, private OrderapiService: OrderapiService) { }
 
@@ -29,13 +32,17 @@ export class ListCartComponent implements OnInit {
     this.books = this.CartlocalService.listFromCart();
 
     this.books.forEach(eachbook => {
-      this.price += eachbook.price;
-      console.log(this.price);
+      this.subTotalPrice += eachbook.price;
+      //console.log(this.price);
     });
 
-    console.log(this.price);
-
-    
+    this.subTotalPrice;
+    if(this.subTotalPrice != 0)
+    {
+      this.shipping = 5;
+    }
+    this.tax = Number((this.subTotalPrice/7).toFixed(2));
+    this.totalPrice = this.subTotalPrice + this.shipping + Number(this.tax.toFixed(2));
   }
 
   DeleteBook()
@@ -59,6 +66,18 @@ export class ListCartComponent implements OnInit {
     });
 
     console.log(this.orders);
+  }
+
+  AddPromo(promo: string)
+  {
+    //console.log(promo);
+
+    if(promo == "10OFF")
+    {
+      this.subTotalPrice -= (this.subTotalPrice/10);
+      this.tax = Number((this.subTotalPrice/7).toFixed(2));
+      this.totalPrice = this.subTotalPrice + this.shipping + Number(this.tax.toFixed(2));
+    }
   }
 
 }

@@ -16,8 +16,8 @@
             <div class="infoWrap">
               <div class="cartSection">
                 <img src="assets/cartimage.jpg" alt="" class="itemImg" />
-                <p class="itemNumber">{{ book.author }}</p>
-                <h3>{{ book.name }}</h3>
+                <p class="itemNumber">CODE: {{ book.bookCode }}</p>
+                <h3>{{ book.bookName }}</h3>
                 <p> <input type="text"  class="qty" placeholder="1" name="quantity" [(ngModel)]="quantity"/> x ${{ book.price }}</p>
                 <p class="stockStatus"> In Stock</p>
               </div>  
@@ -35,17 +35,20 @@
         </ul>
       </div>
       
-      <div class="promoCode"><label for="promo">Have A Promo Code?</label><input type="text" name="promo" placholder="Enter Code" />
-      <a href="#" class="btn"></a></div>
+    <div class="promoCode">
+      <label for="promo">Have A Promo Code?</label>
+      <input type="text" #promo name="promo" placholder="Enter Code"/>
+      <button class="btn" (click)=AddPromo(promo.value)></button>
+    </div>
       
       <div class="subtotal cf">
         <ul>
-          <li class="totalRow"><span class="label">Subtotal</span><span class="value">$35.00</span></li>
+          <li class="totalRow"><span class="label">Subtotal</span><span class="value">${{ subTotalPrice }}</span></li>
           
-              <li class="totalRow"><span class="label">Shipping</span><span class="value">$5.00</span></li>
-          
-                <li class="totalRow"><span class="label">Tax</span><span class="value">$4.00</span></li>
-                <li class="totalRow final"><span class="label">Total</span><span class="value">$44.00</span></li>
+              <li class="totalRow"><span class="label">Shipping</span><span class="value">${{ shipping }}</span></li>
+
+                <li class="totalRow"><span class="label">Tax</span><span class="value">${{ tax }}</span></li>
+                <li class="totalRow final"><span class="label">Total</span><span class="value">${{ totalPrice }}</span></li>
           <li class="totalRow"><button (click)=SubmitOrder() class="btn continue">Place Order</button></li>
         </ul>
       </div>

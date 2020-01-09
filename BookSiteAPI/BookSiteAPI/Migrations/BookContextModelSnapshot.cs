@@ -62,9 +62,8 @@ namespace BookSiteAPI.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<string>("TotalPrice")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("TotalPrice")
+                        .HasColumnType("int");
 
                     b.HasKey("OrderId");
 

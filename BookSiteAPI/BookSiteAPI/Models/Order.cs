@@ -11,7 +11,7 @@ namespace BookSiteAPI.Models
         int orderId;
         int bookId;
         int quantity;
-        string totalPrice;
+        int totalPrice;
 
         [Key]
         public int OrderId { get => orderId; set => orderId = value; }
@@ -20,6 +20,6 @@ namespace BookSiteAPI.Models
         [Required]
         public int Quantity { get => quantity; set => quantity = value; }
         [Required]
-        public string TotalPrice { get => totalPrice; set => totalPrice = value; }
+        public int TotalPrice { get => totalPrice; set => totalPrice = value; }
     }
 }
