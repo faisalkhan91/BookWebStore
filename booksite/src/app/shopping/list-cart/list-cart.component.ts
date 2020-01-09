@@ -24,6 +24,9 @@ export class ListCartComponent implements OnInit {
   totalPrice: number = 0;
   shipping: number = 0;
   tax: number = 0;
+  count: number = 0;
+
+  orderGenerated = '';
 
   constructor(private CartlocalService: CartlocalService, private BookapiService: BookapiService, private OrderapiService: OrderapiService) { }
 
@@ -59,19 +62,36 @@ export class ListCartComponent implements OnInit {
     // this.books.forEach(book => {
     //   this.orders.push({orderId: 1, quantity: 1, totalPrice: book.price, bookId: book.bookId,})
     // });
+    this.GenerateOrder();
+
+    var keys = Object.keys(this.books);
+    var len = keys.length;
+    this.count = len;
 
     this.books.forEach(book => {
-      this.order = new Order(book.bookId, 1, book.price);
+      this.order = new Order(this.orderGenerated, book.bookId, 1, (this.totalPrice/this.count));
       this.OrderapiService.placeOrder(this.order);
     });
 
     console.log(this.orders);
   }
 
+  GenerateOrder()
+  {
+    const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz';
+    const stringLength = 10;
+    let randomstring = '';
+    for (let i = 0; i < stringLength; i++)
+    {
+    const rnum = Math.floor(Math.random() * chars.length);
+    randomstring += chars.substring(rnum, rnum + 1);
+    }
+    this.orderGenerated = randomstring;
+  }
+
   AddPromo(promo: string)
   {
     //console.log(promo);
-
     if(promo == "10OFF")
     {
       this.subTotalPrice -= (this.subTotalPrice/10);
