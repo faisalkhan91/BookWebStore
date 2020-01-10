@@ -47,7 +47,7 @@ export class BookapiService {
     return this.books[id];
   }
 
-  removebooks()
+  removebooks(id: number)
   {
     this.http.delete(this.url).subscribe(
       response=>{console.log(response)}),

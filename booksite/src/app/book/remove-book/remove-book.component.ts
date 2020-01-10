@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookapiService } from 'src/app/bookapi.service';
+import { Book } from '../book.model';
 
 @Component({
   selector: 'app-remove-book',
@@ -8,9 +9,14 @@ import { BookapiService } from 'src/app/bookapi.service';
 })
 export class RemoveBookComponent implements OnInit {
 
+  books: Book[] =[];
+
   constructor(private BookapiService: BookapiService) { }
 
   ngOnInit() {
-    this.BookapiService.removebooks();
+    this.books = this.BookapiService.listbooks();
+    this.books.forEach(book => {
+      this.BookapiService.removebooks(book.bookId);
+    });
   }
 }

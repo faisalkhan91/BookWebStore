@@ -4,6 +4,7 @@ import { Book } from 'src/app/book/book.model';
 import { OrderapiService } from 'src/app/orderapi.service';
 import { BookapiService } from 'src/app/bookapi.service';
 import { CartlocalService } from 'src/app/cartlocal.service';
+import { Router } from '@angular/router'
 declare var jQuery: any;
 declare var $: any;
 
@@ -29,7 +30,7 @@ export class ListCartComponent implements OnInit {
 
   orderGenerated = '';
 
-  constructor(private CartlocalService: CartlocalService, private BookapiService: BookapiService, private OrderapiService: OrderapiService) { }
+  constructor(private CartlocalService: CartlocalService, private BookapiService: BookapiService, private OrderapiService: OrderapiService, private Router: Router) { }
 
   ngOnInit() {
     //this.books = this.BookapiService.listbooks();
@@ -116,7 +117,9 @@ export class ListCartComponent implements OnInit {
       this.OrderapiService.placeOrder(this.order);
     });
 
-    console.log(this.orders);
+    //console.log(this.orders);
+
+    this.Router.navigateByUrl('shopping/additem')
   }
 
 }

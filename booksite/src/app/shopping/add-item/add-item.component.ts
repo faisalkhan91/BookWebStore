@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-add-item',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddItemComponent implements OnInit {
 
-  constructor() { }
+  constructor(private Router: Router) { }
 
   ngOnInit() {
+
+    setTimeout(() => {
+      this.Router.navigateByUrl('home');
+    }, 2000);
+
   }
 
 }

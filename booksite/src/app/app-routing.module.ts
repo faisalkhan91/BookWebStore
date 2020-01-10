@@ -15,15 +15,13 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
 
   {path: 'book', component: BookComponent, children: [
-    {path: 'remove', component: RemoveBookComponent}
   ]},
-
   {path: 'book/add', component: AddBookComponent},
+  {path: 'book/remove', component: RemoveBookComponent},
 
   {path: 'shopping', component: ShoppingComponent, children: [
     {path: 'removeitem', component: RemoveItemComponent}
   ]},
-
   {path: 'shopping/additem', component: AddItemComponent},
 ];
 
