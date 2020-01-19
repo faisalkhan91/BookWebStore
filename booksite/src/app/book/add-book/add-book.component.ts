@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { BookapiService } from 'src/app/bookapi.service'
 import { Book } from '../book.model';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-add-book',
@@ -15,7 +16,7 @@ export class AddBookComponent implements OnInit {
   book: Book;
   codeGenerated = '';
 
-  constructor(private BookapiService: BookapiService) { }
+  constructor(private BookapiService: BookapiService, private Router: Router) { }
 
   ngOnInit() {
   }
@@ -37,6 +38,10 @@ export class AddBookComponent implements OnInit {
     this.book = new Book(this.codeGenerated, this.signupForm.value.name, this.signupForm.value.author, this.signupForm.value.email, this.signupForm.value.price);
     //console.log(this.book);
     this.BookapiService.addbook(this.book);
+
+    setTimeout(() => {
+      this.Router.navigateByUrl('book');
+    }, 1000);
   }
 
 }
