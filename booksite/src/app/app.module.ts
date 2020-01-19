@@ -15,7 +15,6 @@ import { RemoveBookComponent } from './book/remove-book/remove-book.component';
 import { ShoppingComponent } from './shopping/shopping.component';
 import { AddItemComponent } from './shopping/add-item/add-item.component';
 import { ListCartComponent } from './shopping/list-cart/list-cart.component';
-import { RemoveItemComponent } from './shopping/remove-item/remove-item.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +28,7 @@ import { RemoveItemComponent } from './shopping/remove-item/remove-item.componen
     RemoveBookComponent,
     ShoppingComponent,
     AddItemComponent,
-    ListCartComponent,
-    RemoveItemComponent
+    ListCartComponent
   ],
   imports: [
     BrowserModule,
