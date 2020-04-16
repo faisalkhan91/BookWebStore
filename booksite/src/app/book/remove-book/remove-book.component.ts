@@ -26,7 +26,7 @@ export class RemoveBookComponent implements OnInit {
 
   removeBooks(books: Book[])
   {
-    //console.log(this.books);
+    console.log(this.books);
     this.books.forEach((book, index) => {
       console.log(index);
       //this.BookapiService.removebooks(book.bookId);

@@ -6,6 +6,6 @@
     "\\BookSiteAPI\\Migrations",
     "\\BookSiteAPI\\Models"
   ],
-  "SelectedNode": "\\BookSiteAPI\\Startup.cs",
+  "SelectedNode": "\\BookSiteAPI\\BookSiteAPI.csproj",
   "PreviewInSolutionExplorer": false
 }
